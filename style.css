@@ -82,6 +82,7 @@ body {
 
 .card-image-container img {
   width: 100%;
+  max-width: 500px;
   object-fit: cover;
 }
 
@@ -235,7 +236,8 @@ body {
   }
 }
 
-form {
+
+.form {
   width: 400px;
   margin: auto;
   padding: 20px;
@@ -243,6 +245,7 @@ form {
   border-radius: 5px;
   background-color: #fff;
 }
+
 
 .form-group {
   margin-bottom: 10px;
@@ -265,7 +268,7 @@ input, textarea {
   box-sizing: border-box;
 }
 
-button[type="submit"] {
+.button-submit {
   display: block;
   width: 100%;
   padding: 10px;

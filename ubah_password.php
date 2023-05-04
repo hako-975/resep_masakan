@@ -68,8 +68,9 @@
 <body>
     <?php include_once 'include_navbar.php'; ?>
     <div class="container padding-10px margin-top-bottom-50px">
+		<button type="button" onclick="return window.history.back()" class="button margin-top-5px">Kembali</button>
         <h1 class="text-center">Ubah Password</h1>
-		<form method="post">
+		<form method="post" class="form">
 			<div class="form-group">
 				<label for="password_lama">Password Lama</label>
 				<input type="password" name="password_lama" id="password_lama" required>
@@ -83,7 +84,7 @@
 				<input type="password" name="verifikasi_password_baru" id="verifikasi_password_baru" required>
 			</div>
 			<div class="form-group">
-				<button type="submit" name="btnUbah">Ubah</button>
+				<button type="submit" name="btnUbah" class="button-submit">Ubah</button>
 			</div>
 		</form>
     </div>

@@ -1,6 +1,11 @@
 <?php 
 	require_once 'koneksi.php';
 	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user ORDER BY nama_resep ASC");
+
+	if (isset($_GET['cari'])) {
+		$cari = $_GET['cari'];
+		$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user WHERE nama_resep LIKE '%$cari%' OR deskripsi_resep LIKE '%$cari%' OR bahan LIKE '%$cari%' OR langkah LIKE '%$cari%' OR tanggal_resep_dibuat LIKE '%$cari%' OR username LIKE '%$cari%' ORDER BY nama_resep ASC");
+	}
 ?>
 
 <html>
@@ -12,6 +17,9 @@
 	<?php include_once 'include_navbar.php'; ?>
 
 	<div class="container padding-10px margin-top-bottom-50px">
+		<?php if (isset($_GET['cari'])): ?>
+			<h2>Resep yang dicari: <?= $_GET['cari']; ?></h2>
+		<?php endif ?>
 		<h1 class="text-center">Daftar Resep Masakan</h1>
 		<?php foreach ($resep as $data_resep): ?>
 			<a href="detail_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" class="card-link">

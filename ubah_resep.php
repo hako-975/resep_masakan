@@ -97,7 +97,7 @@
 	<div class="container padding-10px margin-top-bottom-50px">
 		<button type="button" onclick="return window.history.back()" class="button margin-top-5px">Kembali</button>
 		<h1 class="text-center">Ubah Resep - <?= $data_resep['nama_resep']; ?></h1>
-		<form method="post" enctype="multipart/form-data">
+		<form method="post" class="form" enctype="multipart/form-data">
 			<input type="hidden" name="foto_resep_old" value="<?= $data_resep['foto_resep']; ?>">
 		  <div class="form-group">
 		    <label for="nama_resep">Nama Resep</label>
@@ -119,7 +119,7 @@
 		    <label for="foto_resep">Foto Resep (upload foto jika ingin mengubah foto)</label>
 		    <input type="file" id="foto_resep" name="foto_resep">
 		  </div>
-		  <button type="submit" name="btnUbahResep">Ubah Resep</button>
+		  <button type="submit" name="btnUbahResep" class="button-submit">Ubah Resep</button>
 		</form>
 	</div>
 </body>

@@ -75,7 +75,7 @@
 	<div class="container padding-10px margin-top-bottom-50px">
 		<button type="button" onclick="return window.history.back()" class="button margin-top-5px">Kembali</button>
 		<h1 class="text-center">Tambah Resep</h1>
-		<form method="post" enctype="multipart/form-data">
+		<form method="post" class="form" enctype="multipart/form-data">
 		  <div class="form-group">
 		    <label for="nama_resep">Nama Resep</label>
 		    <input type="text" id="nama_resep" name="nama_resep" required>
@@ -96,7 +96,7 @@
 		    <label for="foto_resep">Foto Resep</label>
 		    <input type="file" id="foto_resep" name="foto_resep" required>
 		  </div>
-		  <button type="submit" name="btnTambahResep">Tambah Resep</button>
+		  <button type="submit" name="btnTambahResep" class="button-submit">Tambah Resep</button>
 		</form>
 	</div>
 </body>

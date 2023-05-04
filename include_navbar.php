@@ -1,10 +1,10 @@
 <nav class="navbar">
   <div class="navbar-container">
     <a class="navbar-title" href="index.php"><img src="img/logo.png" width="25"> <span>Resep Masakan</span></a>
-    <div class="navbar-search">
-      <input type="text" class="cari" placeholder="Cari...">
-      <button>Cari</button>
-    </div>
+    <form action="index.php" method="get" class="navbar-search">
+      <input type="text" class="cari" name="cari" placeholder="Cari..." value="<?= (isset($_GET['cari'])? $_GET['cari'] : ""); ?>">
+      <button type="submit">Cari</button>
+    </form>
     <div class="navbar-buttons">
       <?php if (isset($_SESSION['id_user'])): ?>
         <a href="resep.php">Resep Ku</a>

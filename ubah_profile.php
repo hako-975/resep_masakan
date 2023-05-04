@@ -58,8 +58,9 @@
 <body>
     <?php include_once 'include_navbar.php'; ?>
     <div class="container padding-10px margin-top-bottom-50px">
+		<button type="button" onclick="return window.history.back()" class="button margin-top-5px">Kembali</button>
         <h1 class="text-center">Ubah Profile</h1>
-		<form method="post">
+		<form method="post" class="form">
 			<div class="form-group">
 				<label for="username">Username</label>
 				<input type="text" name="username" id="username" required value="<?= $data_user['username']; ?>">
@@ -69,7 +70,7 @@
 				<input type="text" name="nama_lengkap" id="nama_lengkap" required value="<?= $data_user['nama_lengkap']; ?>">
 			</div>
 			<div class="form-group">
-				<button type="submit" name="btnUbah">Ubah</button>
+				<button type="submit" name="btnUbah" class="button-submit">Ubah</button>
 			</div>
 		</form>
     </div>
