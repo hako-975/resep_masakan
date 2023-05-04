@@ -41,6 +41,10 @@ body {
   padding: 5px;
 }
 
+.padding-10px {
+  padding: 10px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -227,6 +231,10 @@ label {
   margin-bottom: 5px;
 }
 
+.cari {
+  border-radius: 0px;
+}
+
 input {
   width: 100%;
   padding: 10px;
@@ -247,6 +255,7 @@ button[type="submit"] {
 }
 
 .button {
+  display: inline-block;
   color: #fff;
   text-decoration: none;
   background-color: #333;
@@ -265,7 +274,42 @@ table.profile {
   background-color: #d72323;
 }
 
+.btn-card-ubah {
+  position: absolute;
+  top: 10px;
+  bottom: auto;
+  right: 100px;
+  left: auto;
+}
 
+.btn-card-hapus {
+  position: absolute;
+  top: 10px;
+  bottom: auto;
+  right: 20px;
+  left: auto;
+}
+
+.card-detail-resep {
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+.card-detail-resep img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.card-detail-resep-button {
+  position: absolute;
+  right: 20px;
+}
 
 @media (min-width: 500px) {
   .container {
@@ -278,6 +322,23 @@ table.profile {
 
   .card {
     max-height: 410px;
+    margin-bottom: 25px;
+  }
+
+  .btn-card-ubah {
+    position: absolute;
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    right: auto;
+  }
+
+  .btn-card-hapus {
+    position: absolute;
+    top: auto;
+    bottom: 10px;
+    left: 90px;
+    right: auto;
   }
 }
 
@@ -292,6 +353,22 @@ table.profile {
 
   .card {
     max-height: 300px;
+  }
+    
+  .btn-card-ubah {
+    position: absolute;
+    top: 10px;
+    bottom: auto;
+    right: 100px;
+    left: auto;
+  }
+
+  .btn-card-hapus {
+    position: absolute;
+    top: 10px;
+    bottom: auto;
+    right: 20px;
+    left: auto;
   }
 }
 

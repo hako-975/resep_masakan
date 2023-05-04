@@ -1,6 +1,10 @@
 <?php 
 	require_once 'koneksi.php';
-	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user ORDER BY nama_resep ASC");
+
+	$id_user = $_SESSION['id_user'];
+	$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
+
+	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user WHERE resep.id_user = '$id_user' ORDER BY tanggal_resep_dibuat DESC");
 ?>
 
 <html>
@@ -12,7 +16,8 @@
 	<?php include_once 'include_navbar.php'; ?>
 
 	<div class="container padding-10px margin-top-50px">
-		<h1 class="text-center">Daftar Resep Masakan</h1>
+		<h1 class="text-center">Resep Ku</h1>
+		<a href="tambah_resep.php" class="button margin-bottom-20px">Buat Resep Baru</a>
 		<?php foreach ($resep as $data_resep): ?>
 			<a href="detail_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" class="card-link">
 				<div class="card">
@@ -37,6 +42,8 @@
 				    <h4 class="margin-top-5px margin-bottom-20px">Selengkapnya...</h4>
 				    <h5 class="card-name"><?= $data_resep['username']; ?></h5>
 				    <p class="card-date"><?= date("d-m-Y, H:i", strtotime($data_resep['tanggal_resep_dibuat'])); ?></p>
+				  	<a href="" class="button btn-card-ubah">Ubah</a>
+				  	<a href="" class="button btn-card-hapus">Hapus</a>
 				  </div>
 				</div>
 			</a>
