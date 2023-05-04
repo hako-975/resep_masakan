@@ -33,7 +33,7 @@
 		if ($password != $verifikasi_password) {
 			echo "
 				<script>
-					alert('password tidak sama dengan verifikasi password!')
+					alert('Password harus sama dengan verifikasi password!')
 					window.history.back();
 				</script>
 			";

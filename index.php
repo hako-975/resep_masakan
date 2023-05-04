@@ -21,11 +21,21 @@
 				  </div>
 				  <div class="card-content">
 				    <h2 class="card-title"><?= $data_resep['nama_resep']; ?></h2>
-				    <p class="card-description"><?= $data_resep['deskripsi_resep']; ?></p>
+				    <p class="card-description"><?= (strlen($data_resep['deskripsi_resep']) <= 200) ? $data_resep['deskripsi_resep'] : substr($data_resep['deskripsi_resep'], 0, 200) . "..."; ?></p>
 				    <h4 class="margin-top-bottom-5px">Bahan-bahan:</h4>
-				    <p class="card-description"><?= nl2br($data_resep['bahan']); ?></p>
-				    <h4 class="margin-top-bottom-5px">Selengkapnya...</h4>
-				    <p class="card-name"><?= $data_resep['nama_lengkap']; ?></p>
+				    <?php 
+				    	$bahan = nl2br($data_resep['bahan']);
+				    	$lines = explode("<br />", $bahan);
+				    ?>
+				    <p class="card-description">
+				    	<?php 
+					    	for ($i = 0; $i < min(count($lines), 3); $i++) {
+							  echo $lines[$i] . "<br />";
+							}
+						?>
+				    </p>
+				    <h4 class="margin-top-5px margin-bottom-20px">Selengkapnya...</h4>
+				    <h5 class="card-name"><?= $data_resep['nama_lengkap']; ?></h5>
 				    <p class="card-date"><?= date("d-m-Y, H:i", strtotime($data_resep['tanggal_resep_dibuat'])); ?></p>
 				  </div>
 				</div>

@@ -36,6 +36,11 @@
 				<a href="ubah_password.php" class="button">Ubah Password</a>
 		  	</td>
 		  </tr>
+		  <tr>
+		  	<td>
+				<a href="logout.php" class="button bg-red">Logout</a>
+		  	</td>
+		  </tr>
 		</table>
     </div>
 </body>
