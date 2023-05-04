@@ -257,7 +257,7 @@ label {
   border-radius: 0px;
 }
 
-input {
+input, textarea {
   width: 100%;
   padding: 10px;
   border-radius: 5px;

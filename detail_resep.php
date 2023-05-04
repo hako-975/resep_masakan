@@ -30,16 +30,16 @@
 			<?php if ($resepKu): ?>
 				<div class="card-detail-resep-button">
 					<a href="" class="button">Ubah</a>
-				  	<a href="" class="button">Hapus</a>
+				  	<a href="hapus_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Resep <?= $data_resep['nama_resep']; ?>?')" class="button">Hapus</a>
 				</div>
 			<?php endif ?>
 		    <h2 class="text-center"><?= $data_resep['nama_resep']; ?></h2>
 		    <img src="img/<?= $data_resep['foto_resep']; ?>" alt="Gambar">
 		    <p class="card-description"><?= $data_resep['deskripsi_resep']; ?></p>
 		    <h4 class="margin-top-bottom-5px">Bahan-bahan:</h4>
-		    <p class="card-description"><?= nl2br($data_resep['bahan']); ?></p>
+		    <p class="card-description"><?= $data_resep['bahan']; ?></p>
 		    <h4 class="margin-top-bottom-5px">Langkah-langkah:</h4>
-		    <p class="card-description"><?= nl2br($data_resep['langkah']); ?></p>
+		    <p class="card-description"><?= $data_resep['langkah']; ?></p>
 		    <hr>
 		    <h4 class="margin-top-bottom-5px">Resep dibuat oleh: <?= $data_resep['username']; ?></h4>
 		    <h4 class="margin-top-bottom-5px">Resep dibuat pada tanggal: <?= date("d-m-Y, H:i", strtotime($data_resep['tanggal_resep_dibuat'])); ?></h4>
