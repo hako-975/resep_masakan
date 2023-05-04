@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a class="navbar-title" href="index.php">Resep Masakan</a>
+    <a class="navbar-title" href="index.php"><img src="img/logo.png" width="25"> <span>Resep Masakan</span></a>
     <div class="navbar-search">
       <input type="text" class="cari" placeholder="Cari...">
       <button>Cari</button>

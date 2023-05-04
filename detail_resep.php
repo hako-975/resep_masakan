@@ -24,8 +24,8 @@
 </head>
 <body>
 	<?php include_once 'include_navbar.php'; ?>
-	<div class="container padding-10px margin-top-50px">
-		<button type="button" onclick="return window.history.back()" class="button margin-bottom-20px">Kembali</button>
+	<div class="container padding-10px margin-top-bottom-50px">
+		<button type="button" onclick="return window.history.back()" class="button margin-top-bottom-20px">Kembali</button>
 		<div class="card-detail-resep">
 			<?php if ($resepKu): ?>
 				<div class="card-detail-resep-button">

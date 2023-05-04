@@ -16,8 +16,9 @@ body {
 	margin-left: auto;
 }
 
-.margin-top-50px {
+.margin-top-bottom-50px {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .margin-5px {
@@ -26,6 +27,15 @@ body {
 
 .margin-top-5px {
     margin-top: 5px;
+}
+
+.margin-top-bottom-20px {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.margin-top-50px {
+    margin-top: 50px;
 }
 
 .margin-bottom-20px {
@@ -148,7 +158,19 @@ body {
   font-weight: bold;
   color: #333;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
+
+.navbar-title img {
+  margin-right: 10px;
+}
+
+.navbar-title span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 
 .navbar-search {
   display: flex;
@@ -311,12 +333,19 @@ table.profile {
   right: 20px;
 }
 
+.logo {
+  display: block;
+  margin: auto;
+  width: 75px;
+  margin-top: 50px;
+}
+
 @media (min-width: 500px) {
   .container {
     max-width: 540px;
   }
 
-  .margin-top-50px {
+  .margin-top-bottom-50px {
     margin-top: 150px;
   }
 
@@ -347,7 +376,7 @@ table.profile {
     max-width: 720px;
   }
 
-  .margin-top-50px {
+  .margin-top-bottom-50px {
     margin-top: 50px;
   }
 
@@ -377,7 +406,7 @@ table.profile {
     max-width: 960px;
   }
   
-  .margin-top-50px {
+  .margin-top-bottom-50px {
     margin-top: 50px;
   }
 
@@ -391,7 +420,7 @@ table.profile {
     max-width: 1140px;
   }
 
-  .margin-top-50px {
+  .margin-top-bottom-50px {
     margin-top: 50px;
   }
 

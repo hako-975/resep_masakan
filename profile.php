@@ -17,7 +17,7 @@
 </head>
 <body>
     <?php include_once 'include_navbar.php'; ?>
-    <div class="container padding-10px margin-top-50px">
+    <div class="container padding-10px margin-top-bottom-50px">
         <h1 class="text-center">Profile</h1>
 		<table class="profile" cellpadding="10">
 		  <tr>

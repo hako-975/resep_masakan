@@ -63,7 +63,8 @@
 <body>
 	<?php include_once 'include_navbar.php'; ?>
 
-	<div class="container padding-10px margin-top-50px">
+	<div class="container padding-10px margin-top-bottom-50px">
+        <img src="img/logo.png" alt="Logo" class="logo">
 		<h1 class="text-center">Registrasi</h1>
 		<form method="post">
 		  <div class="form-group">
@@ -84,7 +85,7 @@
 		  </div>
 		  <button type="submit" name="btnRegistrasi">Registrasi</button>
 		</form>
+		<a href="login.php" class="link-center text-center">Sudah memiliki akun? Login</a>
 	</div>
-	<a href="login.php" class="link-center text-center">Sudah memiliki akun? Login</a>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <body>
 	<?php include_once 'include_navbar.php'; ?>
 
-	<div class="container padding-10px margin-top-50px">
+	<div class="container padding-10px margin-top-bottom-50px">
 		<h1 class="text-center">Daftar Resep Masakan</h1>
 		<?php foreach ($resep as $data_resep): ?>
 			<a href="detail_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" class="card-link">

@@ -57,7 +57,7 @@
 </head>
 <body>
     <?php include_once 'include_navbar.php'; ?>
-    <div class="container padding-10px margin-top-50px">
+    <div class="container padding-10px margin-top-bottom-50px">
         <h1 class="text-center">Ubah Profile</h1>
 		<form method="post">
 			<div class="form-group">

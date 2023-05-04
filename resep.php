@@ -15,7 +15,7 @@
 <body>
 	<?php include_once 'include_navbar.php'; ?>
 
-	<div class="container padding-10px margin-top-50px">
+	<div class="container padding-10px margin-top-bottom-50px">
 		<h1 class="text-center">Resep Ku</h1>
 		<a href="tambah_resep.php" class="button margin-bottom-20px">Buat Resep Baru</a>
 		<?php foreach ($resep as $data_resep): ?>
