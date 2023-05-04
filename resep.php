@@ -42,7 +42,7 @@
 				    <h4 class="margin-top-5px margin-bottom-20px">Selengkapnya...</h4>
 				    <h5 class="card-name"><?= $data_resep['username']; ?></h5>
 				    <p class="card-date"><?= date("d-m-Y, H:i", strtotime($data_resep['tanggal_resep_dibuat'])); ?></p>
-				  	<a href="" class="button btn-card-ubah">Ubah</a>
+				  	<a href="ubah_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" class="button btn-card-ubah">Ubah</a>
 				  	<a href="hapus_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Resep <?= $data_resep['nama_resep']; ?>?')" class="button btn-card-hapus">Hapus</a>
 				  </div>
 				</div>

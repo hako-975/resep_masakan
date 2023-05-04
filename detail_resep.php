@@ -29,7 +29,7 @@
 		<div class="card-detail-resep">
 			<?php if ($resepKu): ?>
 				<div class="card-detail-resep-button">
-					<a href="" class="button">Ubah</a>
+					<a href="ubah_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" class="button">Ubah</a>
 				  	<a href="hapus_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Resep <?= $data_resep['nama_resep']; ?>?')" class="button">Hapus</a>
 				</div>
 			<?php endif ?>

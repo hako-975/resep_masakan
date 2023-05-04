@@ -73,6 +73,7 @@
 <body>
 	<?php include_once 'include_navbar.php'; ?>
 	<div class="container padding-10px margin-top-bottom-50px">
+		<button type="button" onclick="return window.history.back()" class="button margin-top-5px">Kembali</button>
 		<h1 class="text-center">Tambah Resep</h1>
 		<form method="post" enctype="multipart/form-data">
 		  <div class="form-group">
