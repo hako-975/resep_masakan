@@ -29,7 +29,7 @@
 				    <p class="card-description"><?= (strlen($data_resep['deskripsi_resep']) <= 200) ? $data_resep['deskripsi_resep'] : substr($data_resep['deskripsi_resep'], 0, 200) . "..."; ?></p>
 				    <h4 class="margin-top-bottom-5px">Bahan-bahan:</h4>
 				    <?php 
-				    	$bahan = nl2br($data_resep['bahan']);
+				    	$bahan = $data_resep['bahan'];
 				    	$lines = explode("<br />", $bahan);
 				    ?>
 				    <p class="card-description">

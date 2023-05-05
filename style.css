@@ -74,15 +74,19 @@ body {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 0px 5px #ccc;
+  border: 5px solid white;
 }
 
 .card-image-container {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
   flex: 0 0 auto;
 }
 
 .card-image-container img {
   width: 100%;
-  max-width: 500px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -329,6 +333,7 @@ table.profile {
   margin-right: auto;
   border-radius: 5px;
   margin-bottom: 20px;
+  width: 300px;
 }
 
 .card-detail-resep-button {
@@ -372,6 +377,11 @@ table.profile {
     left: 90px;
     right: auto;
   }
+
+  .card-image-container {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -401,6 +411,13 @@ table.profile {
     bottom: auto;
     right: 20px;
     left: auto;
+  }
+
+  .card-image-container {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    flex: 0 0 auto;
   }
 }
 
