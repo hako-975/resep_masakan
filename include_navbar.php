@@ -2,7 +2,7 @@
   <div class="navbar-container">
     <a class="navbar-title" href="index.php"><img src="img/logo.png" width="25"> <span>Resep Masakan</span></a>
     <form action="index.php" method="get" class="navbar-search">
-      <input type="text" class="cari" name="cari" placeholder="Cari..." value="<?= (isset($_GET['cari'])? $_GET['cari'] : ""); ?>">
+      <input type="text" name="cari" placeholder="Cari..." value="<?= (isset($_GET['cari'])? $_GET['cari'] : ""); ?>" required>
       <button type="submit">Cari</button>
     </form>
     <div class="navbar-buttons">

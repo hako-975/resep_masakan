@@ -68,7 +68,6 @@ body {
 
 .card {
   display: flex;
-  max-height: 300px;
   overflow: hidden;
   position: relative;
   background-color: #fff;
@@ -186,15 +185,14 @@ body {
 .navbar-search input[type="text"] {
   flex-grow: 1;
   padding: 5px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  outline: none;
+  border-radius: 5px 0 0 5px;
 }
 
 .navbar-search button {
   padding: 5px 10px;
   background-color: #333;
   color: #fff;
+  border-radius: 0 5px 5px 0;
   border: none;
   cursor: pointer;
 }
@@ -203,6 +201,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  border-radius: 5px;
 }
 
 .navbar-buttons a {
@@ -211,6 +210,7 @@ body {
   margin-left: 20px;
   background-color: #333;
   padding: 5px 10px;
+  border-radius: 5px;
 }
 
 
@@ -261,7 +261,11 @@ label {
 }
 
 .cari {
-  border-radius: 0px;
+  border-radius: 0;
+}
+
+.btnCari {
+  border-radius: 0 5px 5px 0;
 }
 
 input, textarea {
@@ -287,6 +291,9 @@ input, textarea {
   display: inline-block;
   color: #fff;
   text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
   background-color: #333;
   padding: 5px 10px;
 }
@@ -323,7 +330,7 @@ table.profile {
   position: relative;
   background-color: #fff;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 35px 20px;
   box-shadow: 0px 0px 5px #ccc;
 }
 
@@ -339,6 +346,7 @@ table.profile {
 .card-detail-resep-button {
   position: absolute;
   right: 20px;
+  top: 15px;
 }
 
 .logo {
@@ -348,7 +356,14 @@ table.profile {
   margin-top: 50px;
 }
 
-@media (min-width: 500px) {
+@media (max-width: 992px) {
+  .card-name {
+    left: 15px;
+    top: auto;
+    bottom: 20px;
+    right: auto;
+  }
+
   .container {
     max-width: 540px;
   }
@@ -358,7 +373,6 @@ table.profile {
   }
 
   .card {
-    max-height: 410px;
     margin-bottom: 25px;
   }
 
@@ -382,6 +396,10 @@ table.profile {
     width: 150px;
     height: 150px;
   }
+
+  .form {
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -393,10 +411,6 @@ table.profile {
     margin-top: 50px;
   }
 
-  .card {
-    max-height: 300px;
-  }
-    
   .btn-card-ubah {
     position: absolute;
     top: 10px;
@@ -431,6 +445,7 @@ table.profile {
   }
 
   .card {
+    margin-bottom: 25px;
     max-height: 300px;
   }
 }
@@ -442,9 +457,5 @@ table.profile {
 
   .margin-top-bottom-50px {
     margin-top: 50px;
-  }
-
-  .card {
-    max-height: 300px;
   }
 }

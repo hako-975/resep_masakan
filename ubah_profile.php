@@ -9,7 +9,7 @@
 	$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 
 	if (isset($_POST['btnUbah'])) {
-		$username = $_POST['username'];
+		$username = nl2br($_POST['username']);
 		$nama_lengkap = $_POST['nama_lengkap'];
 
 		// check username 
@@ -20,7 +20,7 @@
 				echo "
 					<script>
 						alert('Username telah digunakan!')
-						window.history.back()
+						window.history.back();
 					</script>
 				";
 				exit;
@@ -41,7 +41,7 @@
 			echo "
 				<script>
 					alert('Profile gagal diubah!')
-                	window.history.back()
+					window.location.href='profile.php'
 				</script>
 			";
 			exit;
