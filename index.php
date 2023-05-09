@@ -19,6 +19,7 @@
 	<div class="container padding-10px margin-top-bottom-50px">
 		<?php if (isset($_GET['cari'])): ?>
 			<h2>Resep yang dicari: <?= $_GET['cari']; ?></h2>
+			<h3>Tersedia: <?= mysqli_num_rows($resep); ?></h3>
 		<?php endif ?>
 		<h1 class="text-center">Daftar Resep Masakan</h1>
 		<?php foreach ($resep as $data_resep): ?>
