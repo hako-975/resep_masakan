@@ -18,6 +18,7 @@
 	<div class="container padding-10px margin-top-bottom-50px">
 		<h1 class="text-center">Resep Ku</h1>
 		<a href="tambah_resep.php" class="button margin-bottom-20px">Buat Resep Baru</a>
+		<h3>Total Resep: <?= mysqli_num_rows($resep); ?></h3>
 		<?php foreach ($resep as $data_resep): ?>
 			<a href="detail_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" class="card-link">
 				<div class="card">
