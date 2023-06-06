@@ -13,9 +13,7 @@
           $data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
           $username = $data_user['username'];
         ?>
-        <?php if ($username == 'admin'): ?>
-          <a href="kategori.php">Kategori</a>
-        <?php endif ?>
+        <a href="kategori.php">Kategori</a>
         <a href="profile.php">Profile</a>
       <?php else: ?>
         <a href="registrasi.php">Registrasi</a>
