@@ -1,9 +1,9 @@
 * {
   box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   margin: 0;
 }
@@ -270,7 +270,7 @@ label {
   border-radius: 0 5px 5px 0;
 }
 
-input, textarea {
+input, textarea, select {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -326,6 +326,14 @@ table.profile {
   bottom: auto;
   right: 20px;
   left: auto;
+}
+
+.kategori {
+  position: absolute;
+  top: 0px;
+  bottom: auto;
+  right: 20px;
+  left: auto; 
 }
 
 .card-detail-resep {
@@ -460,4 +468,19 @@ table.profile {
   .margin-top-bottom-50px {
     margin-top: 50px;
   }
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-responsive th, .table-responsive td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #bbb;
 }

@@ -4,7 +4,7 @@
 	$id_user = $_SESSION['id_user'];
 	$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 
-	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user WHERE resep.id_user = '$id_user' ORDER BY tanggal_resep_dibuat DESC");
+	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN kategori ON kategori.id_kategori = resep.id_kategori INNER JOIN user ON resep.id_user = user.id_user WHERE resep.id_user = '$id_user' ORDER BY tanggal_resep_dibuat DESC");
 ?>
 
 <html>
@@ -41,6 +41,7 @@
 						?>
 				    </p>
 				    <h4 class="margin-top-5px margin-bottom-20px">Selengkapnya...</h4>
+				    <h4>Kategori: <?= $data_resep['kategori']; ?></h4>
 				    <h5 class="card-name"><?= $data_resep['username']; ?></h5>
 				    <p class="card-date"><?= date("d-m-Y, H:i", strtotime($data_resep['tanggal_resep_dibuat'])); ?></p>
 				  	<a href="ubah_resep.php?id_resep=<?= $data_resep['id_resep']; ?>" class="button btn-card-ubah">Ubah</a>

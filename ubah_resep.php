@@ -9,6 +9,8 @@
 	$id_user = $_SESSION['id_user'];
 	$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 
+	$kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY kategori ASC");
+
 	$id_resep = $_GET['id_resep'];
 	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user WHERE id_resep = '$id_resep' ORDER BY nama_resep ASC");
 	$data_resep = mysqli_fetch_assoc($resep);
@@ -33,6 +35,7 @@
 		exit;
 	}
 	if (isset($_POST['btnUbahResep'])) {
+		$id_kategori = $_POST['id_kategori'];
 		$nama_resep = $_POST['nama_resep'];
 		$deskripsi_resep = nl2br($_POST['deskripsi_resep']);
 		$bahan = nl2br($_POST['bahan']);
@@ -65,7 +68,7 @@
             move_uploaded_file($file_tmp, 'img/'. $foto_resep);
         }
 
-		$ubah_resep = mysqli_query($koneksi, "UPDATE resep SET nama_resep = '$nama_resep', deskripsi_resep = '$deskripsi_resep', bahan = '$bahan', langkah = '$langkah', foto_resep = '$foto_resep' WHERE id_user = '$id_user' && id_resep = '$id_resep'");
+		$ubah_resep = mysqli_query($koneksi, "UPDATE resep SET nama_resep = '$nama_resep', deskripsi_resep = '$deskripsi_resep', bahan = '$bahan', langkah = '$langkah', foto_resep = '$foto_resep', id_kategori = '$id_kategori' WHERE id_user = '$id_user' && id_resep = '$id_resep'");
 
 		if ($ubah_resep) {
 			echo "
@@ -98,7 +101,22 @@
 		<button type="button" onclick="return window.history.back()" class="button margin-top-5px">Kembali</button>
 		<h1 class="text-center">Ubah Resep - <?= $data_resep['nama_resep']; ?></h1>
 		<form method="post" class="form" enctype="multipart/form-data">
-			<input type="hidden" name="foto_resep_old" value="<?= $data_resep['foto_resep']; ?>">
+		  <input type="hidden" name="foto_resep_old" value="<?= $data_resep['foto_resep']; ?>">
+		  <div class="form-group">
+		   	<label for="id_kategori">Kategori</label>
+		    <select id="id_kategori" name="id_kategori">
+		    	<?php 
+		    		$id_kategori = $data_resep['id_kategori'];
+		    		$nama_kategori = mysqli_query($koneksi, "SELECT * FROM kategori WHERE id_kategori = '$id_kategori'");
+		    	?>
+		    	<option value="<?= $id_kategori; ?>"><?= mysqli_fetch_assoc($nama_kategori)['kategori']; ?></option>
+		    	<?php foreach ($kategori as $data_kategori): ?>
+		    		<?php if ($data_kategori['id_kategori'] != $id_kategori): ?>
+			    		<option value="<?= $data_kategori['id_kategori']; ?>"><?= $data_kategori['kategori']; ?></option>
+		    		<?php endif ?>
+		    	<?php endforeach ?>
+		    </select>
+		  </div>
 		  <div class="form-group">
 		    <label for="nama_resep">Nama Resep</label>
 		    <input type="text" id="nama_resep" name="nama_resep" required value="<?= $data_resep['nama_resep']; ?>">

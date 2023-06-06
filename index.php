@@ -1,10 +1,10 @@
 <?php 
 	require_once 'koneksi.php';
-	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user ORDER BY nama_resep ASC");
+	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN kategori ON kategori.id_kategori = resep.id_kategori INNER JOIN user ON resep.id_user = user.id_user ORDER BY nama_resep ASC");
 
 	if (isset($_GET['cari'])) {
 		$cari = $_GET['cari'];
-		$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user WHERE nama_resep LIKE '%$cari%' OR deskripsi_resep LIKE '%$cari%' OR bahan LIKE '%$cari%' OR langkah LIKE '%$cari%' OR tanggal_resep_dibuat LIKE '%$cari%' OR username LIKE '%$cari%' ORDER BY nama_resep ASC");
+		$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN kategori ON kategori.id_kategori = resep.id_kategori INNER JOIN user ON resep.id_user = user.id_user WHERE nama_resep LIKE '%$cari%' OR deskripsi_resep LIKE '%$cari%' OR bahan LIKE '%$cari%' OR langkah LIKE '%$cari%' OR tanggal_resep_dibuat LIKE '%$cari%' OR username LIKE '%$cari%' ORDER BY nama_resep ASC");
 	}
 ?>
 
@@ -44,6 +44,7 @@
 						?>
 				    </p>
 				    <h4 class="margin-top-5px margin-bottom-20px">Selengkapnya...</h4>
+				    <h4 class="kategori">Kategori: <?= $data_resep['kategori']; ?></h4>
 				    <h5 class="card-name"><?= $data_resep['username']; ?></h5>
 				    <p class="card-date"><?= date("d-m-Y, H:i", strtotime($data_resep['tanggal_resep_dibuat'])); ?></p>
 				  </div>

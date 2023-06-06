@@ -3,7 +3,7 @@
 
 	$id_resep = $_GET['id_resep'];
 
-	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN user ON resep.id_user = user.id_user WHERE id_resep = '$id_resep' ORDER BY nama_resep ASC");
+	$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN kategori ON kategori.id_kategori = resep.id_kategori INNER JOIN user ON resep.id_user = user.id_user WHERE id_resep = '$id_resep' ORDER BY nama_resep ASC");
 	$data_resep = mysqli_fetch_assoc($resep);
 
 	$resepKu = false;
@@ -35,7 +35,8 @@
 			<?php endif ?>
 		    <h2 class="text-center"><?= $data_resep['nama_resep']; ?></h2>
 		    <img src="img/<?= $data_resep['foto_resep']; ?>" alt="Gambar">
-		    <p class="card-description"><?= $data_resep['deskripsi_resep']; ?></p>
+		    <h3 class="card-description"><?= $data_resep['deskripsi_resep']; ?></h3>
+		    <h4>Kategori: <?= $data_resep['kategori']; ?></h4>
 		    <h4 class="margin-top-bottom-5px">Bahan-bahan:</h4>
 		    <p class="card-description"><?= $data_resep['bahan']; ?></p>
 		    <h4 class="margin-top-bottom-5px">Langkah-langkah:</h4>

@@ -9,12 +9,26 @@
 	$id_user = $_SESSION['id_user'];
 	$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 
+	$kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY kategori ASC");
+
 	if (isset($_POST['btnTambahResep'])) {
+		$id_kategori = $_POST['id_kategori'];
 		$nama_resep = $_POST['nama_resep'];
 		$deskripsi_resep = nl2br($_POST['deskripsi_resep']);
 		$bahan = nl2br($_POST['bahan']);
 		$langkah = nl2br($_POST['langkah']);
 		$tanggal_resep_dibuat = date("Y-m-d H:i:s");
+
+		// cek kategori
+		if ($id_kategori == 0) {
+			echo "
+                <script>
+                    alert('Pilih Kategori terlebih dahulu!')
+					window.history.back()
+                </script>
+            ";
+            exit;
+		}
 
 		$foto_resep = $_FILES['foto_resep']['name'];
         if ($foto_resep != '') {
@@ -43,7 +57,7 @@
         	$foto_resep = 'default.png';
         }
 
-		$tambah_resep = mysqli_query($koneksi, "INSERT INTO resep VALUES ('', '$nama_resep', '$deskripsi_resep', '$bahan', '$langkah', '$foto_resep', '$tanggal_resep_dibuat', '$id_user')");
+		$tambah_resep = mysqli_query($koneksi, "INSERT INTO resep VALUES ('', '$nama_resep', '$deskripsi_resep', '$bahan', '$langkah', '$foto_resep', '$tanggal_resep_dibuat', '$id_kategori', '$id_user')");
 
 		if ($tambah_resep) {
 			echo "
@@ -76,6 +90,15 @@
 		<button type="button" onclick="return window.history.back()" class="button margin-top-5px">Kembali</button>
 		<h1 class="text-center">Tambah Resep</h1>
 		<form method="post" class="form" enctype="multipart/form-data">
+		  <div class="form-group">
+		    <label for="id_kategori">Kategori</label>
+		    <select id="id_kategori" name="id_kategori">
+		    	<option value="0">--- Pilih Kategori ---</option>
+		    	<?php foreach ($kategori as $data_kategori): ?>
+		    		<option value="<?= $data_kategori['id_kategori']; ?>"><?= $data_kategori['kategori']; ?></option>
+		    	<?php endforeach ?>
+		    </select>
+		  </div>
 		  <div class="form-group">
 		    <label for="nama_resep">Nama Resep</label>
 		    <input type="text" id="nama_resep" name="nama_resep" required>
