@@ -2,6 +2,11 @@
 	require_once 'koneksi.php';
 
 	$kategori = mysqli_query($koneksi, "SELECT *, COUNT(resep.id_resep) AS jumlah_resep FROM kategori LEFT JOIN resep ON kategori.id_kategori = resep.id_kategori GROUP BY kategori.id_kategori ORDER BY kategori ASC");
+
+	if (isset($_SESSION['id_user'])) {
+		$id_user = $_SESSION['id_user'];
+		$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
+	}
 ?>
 
 <html>
@@ -21,18 +26,26 @@
 					<th>No.</th>
 					<th>Kategori</th>
 					<th>Jumlah Resep</th>
-					<th>Aksi</th>
+					<?php if (isset($_SESSION['id_user'])): ?>
+						<?php if ($data_user['username'] == 'admin'): ?>
+							<th>Aksi</th>
+						<?php endif ?>
+					<?php endif ?>
 				</tr>
 				<?php $i = 1; ?>
 				<?php foreach ($kategori as $data_kategori): ?>
 					<tr>
 						<td><?= $i++; ?></td>
-						<td><?= $data_kategori['kategori']; ?></td>
+						<td><a href="index.php?cari=<?= $data_kategori['kategori']; ?>"><?= $data_kategori['kategori']; ?></a></td>
 						<td><?= $data_kategori['jumlah_resep']; ?></td>
-						<td>
-							<a href="ubah_kategori.php?id_kategori=<?= $data_kategori['id_kategori']; ?>" class="button">Ubah</a>
-							<a onclick="return confirm('Apakah Anda yakin ingin menghapus Kategori <?= $data_kategori['kategori']; ?>?')" href="hapus_kategori.php?id_kategori=<?= $data_kategori['id_kategori']; ?>" class="button">Hapus</a>
-						</td>
+						<?php if (isset($_SESSION['id_user'])): ?>
+							<?php if ($data_user['username'] == 'admin'): ?>
+								<td>
+									<a href="ubah_kategori.php?id_kategori=<?= $data_kategori['id_kategori']; ?>" class="button">Ubah</a>
+									<a onclick="return confirm('Apakah Anda yakin ingin menghapus Kategori <?= $data_kategori['kategori']; ?>?')" href="hapus_kategori.php?id_kategori=<?= $data_kategori['id_kategori']; ?>" class="button">Hapus</a>
+								</td>
+							<?php endif ?>
+						<?php endif ?>
 					</tr>
 				<?php endforeach ?>
 			</table>

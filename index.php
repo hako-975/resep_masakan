@@ -4,7 +4,7 @@
 
 	if (isset($_GET['cari'])) {
 		$cari = $_GET['cari'];
-		$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN kategori ON kategori.id_kategori = resep.id_kategori INNER JOIN user ON resep.id_user = user.id_user WHERE nama_resep LIKE '%$cari%' OR deskripsi_resep LIKE '%$cari%' OR bahan LIKE '%$cari%' OR langkah LIKE '%$cari%' OR tanggal_resep_dibuat LIKE '%$cari%' OR username LIKE '%$cari%' ORDER BY nama_resep ASC");
+		$resep = mysqli_query($koneksi, "SELECT * FROM resep INNER JOIN kategori ON kategori.id_kategori = resep.id_kategori INNER JOIN user ON resep.id_user = user.id_user WHERE nama_resep LIKE '%$cari%' OR deskripsi_resep LIKE '%$cari%' OR bahan LIKE '%$cari%' OR langkah LIKE '%$cari%' OR tanggal_resep_dibuat LIKE '%$cari%' OR username LIKE '%$cari%' OR kategori LIKE '%$cari%' ORDER BY nama_resep ASC");
 	}
 ?>
 
