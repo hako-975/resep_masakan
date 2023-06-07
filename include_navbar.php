@@ -6,6 +6,7 @@
       <button type="submit">Cari</button>
     </form>
     <div class="navbar-buttons">
+      <a href="kategori.php">Kategori</a>
       <?php if (isset($_SESSION['id_user'])): ?>
         <a href="resep.php">Resep Ku</a>
         <?php 
@@ -15,7 +16,6 @@
         ?>
         <a href="profile.php">Profile</a>
       <?php else: ?>
-        <a href="kategori.php">Kategori</a>
         <a href="registrasi.php">Registrasi</a>
         <a href="login.php">Login</a>
       <?php endif ?>

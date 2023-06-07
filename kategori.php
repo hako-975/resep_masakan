@@ -3,6 +3,8 @@
 
 	$kategori = mysqli_query($koneksi, "SELECT *, COUNT(resep.id_resep) AS jumlah_resep FROM kategori LEFT JOIN resep ON kategori.id_kategori = resep.id_kategori GROUP BY kategori.id_kategori ORDER BY kategori ASC");
 
+	$total_resep = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT *, COUNT(resep.id_resep) AS total_resep FROM resep"))['total_resep'];
+	
 	if (isset($_SESSION['id_user'])) {
 		$id_user = $_SESSION['id_user'];
 		$data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
@@ -48,6 +50,10 @@
 						<?php endif ?>
 					</tr>
 				<?php endforeach ?>
+				<tr>
+					<th colspan="2">Total Resep</th>
+					<td><?= $total_resep; ?></td>
+				</tr>
 			</table>
 		</div>
 	</div>
